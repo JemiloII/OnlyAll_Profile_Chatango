@@ -73,30 +73,50 @@ body{margin: 0 auto; padding: 0; text-align: center; background: rgba(0,0,0,1); 
 	padding: 5vh 0 0 0;
 }
 
+/* navigation links */
 .navmain a{
 	height: 5vh;
 	padding: 1.5vh 2vw;
 	vertical-align: middle;
 	line-height: 5vh;
 	font-size: 2.5vmin;
+	text-decoration: none;
 }
 .navmain a:hover{
 	background: rgba(255,255,255,.7);
 }
+.navmain #icons{
+	display: inline-block;
+	padding: 1.5vh 2vw;
+	line-height: 5vh;
+	vertical-align: middle;
+}
+#icons li {
+    position: relative;
+    padding: 0 1vw;
+    cursor: pointer;
+    float: left;
+    list-style: none;
+}
+#icons span.ui-icon {
+    float: left;
+}
 .highlight{
 	color:red;
 }
-
+/* Grass */
 #canvas{
 	bottom: 0px;
 	left: -5px;
 	position: absolute;
-	width: 100vw;
+	width: 110vw;
 	overflow: hidden;
 }
+/* Hides Grass Stuff */
 hide{
 	display: none;
 }
+
 rain{
 	height: 95vh;
 	width: 100vw;

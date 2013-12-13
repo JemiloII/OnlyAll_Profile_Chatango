@@ -4,31 +4,27 @@
 <meta charset="utf-8">
 <title>onlyall's profile</title>
 <link rel="stylesheet" href="src/style.css" />
+<link rel="stylesheet" href="src/dot-luv/jquery-ui-1.10.3.custom.css" />
 </head>
 <body>
 <nav class="navmain">
+    
     <a href="#landing" class="highlight">OnlyAll</a>
     <a href="#rules">Rules</a>
     <a href="#characters">Characters</a>
     <a href="#aboutme">About Me</a>
+        <ul id="icons" class="ui-widget ui-helper-clearfix">
+          <li class="ui-state-default ui-corner-all"><span id="player_control_button" class="ui-icon ui-icon-play"></span></li>
+          <li class="ui-state-default ui-corner-all"><span id="player_mute_button" class="ui-icon ui-icon-volume-on"></span></li>
+        </ul>
 </nav>
 <section id="landing">
-
-
     <div id="viewport">
         <div id="world"></div>
-    </div><div class='ayase'>AYASE</div>
-<rain></rain>
-
-
-
-    
-
-
-
-
-
-
+    </div>
+    <div class='ayase'></div>
+    <rain></rain>
+    <div id="player"></div>
 
     <canvas width="970px;" height="200" id="canvas"></canvas>
     <hide>
@@ -86,7 +82,9 @@
 
 <!--Jquery Here-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="js/jquery-ui-1.10.3.custom.js"></script>
 <script src="src/main.js"></script>
+<script src="src/ytapi.js"></script>
 <script src="src/backstretch.js"></script>
 <script src="src/grass.js"></script>
 <script src="src/cloud.js"></script>
