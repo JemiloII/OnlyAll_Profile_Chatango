@@ -131,6 +131,7 @@ rain{
 	z-index: -1;
 
 }
+/* For Clouds */
 #viewport {
     -webkit-perspective: 750; 
     -moz-perspective: 750; 
