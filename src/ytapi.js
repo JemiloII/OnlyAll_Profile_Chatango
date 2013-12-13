@@ -14,7 +14,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 //    after the API code downloads.
 var player;
 function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
+  player = new YT.Player('bgm', {
     height: '0',
     width: '0',
     videoId: 'naOBXOdLiig',
@@ -36,25 +36,53 @@ function onPlayerReady(event) {
 var done = false;
 function onPlayerStateChange(event) {
   if (event.data == YT.PlayerState.PLAYING && !done) {
-    var state = player.getPlayerState();
+    var state = bgm.getPlayerState();
     done = true;
   }
   if(state == 1){
-    var current_volume = player.getVolume();
+    //var current_volume = bgm.getVolume();
     // call the function every 250 milisecond.
-    setInterval(displTime,250);  // PUT THIS STATEMENT JUST AFTER THE PLAYER HAS BEEN CREATED. 
+    //setInterval(displTime,250);  // PUT THIS STATEMENT JUST AFTER THE PLAYER HAS BEEN CREATED. 
+  }
+  $('#bgm_mute_button').click(playermute);
+function playermute(){
+  Volume = bgm.getVolume();
+  // set play mute icons
+  if(Volume != 0){
+    $('#bgm_mute_button').queue(function(pmute){
+      $(this).removeClass('ui-icon-volume-on').addClass('ui-icon-volume-off');
+      bgm.mute();
+      pmute();
+    });
+  }else if(Volume == 0){
+    $('#bgm_mute_button').queue(function(pmute){
+      $(this).removeClass('ui-icon-volume-off').addClass('ui-icon-volume-on');
+      bgm.unMute();
+      pmute();
+    });
+  }
+}
+  // set player value
+  if(bgm.getPlayerState() == 1){
+    $("#bgm_control_button").removeClass('ui-icon-play').addClass('ui-icon-pause').click(function(){bgm.pauseVideo();});
+  }else if(bgm.getPlayerState() == 2){
+    $("#bgm_control_button").removeClass('ui-icon-pause').addClass('ui-icon-play').click(function(){bgm.playVideo();});
+  }else if(bgm.getPlayerState() == 0){
+    $("#bgm_control_button").removeClass('ui-icon-pause').addClass('ui-icon-arrowrefresh-1-e').click(function(){bgm.playVideo();});
+  }else{
+    var donothing;
   }
 }
 
 
 function displTime() {
   
-  var mind = player.getCurrentTime();   // returns elapsed time in seconds 
+  var mind = bgm.getCurrentTime();   // returns elapsed time in seconds 
   var m = Math.floor(mind / 60);
   var secd = mind % 60;
   var s = Math.ceil(secd)
 
-  var dur = player.getDuration();       // returns duration time in seconds
+  var dur = bgm.getDuration();       // returns duration time in seconds
 
   var dm = Math.floor(dur / 60);
   var dsecd = dur % 60;
@@ -62,25 +90,25 @@ function displTime() {
 
   var playbackPercent = mind/dur;
   var sliderValue = playbackPercent * 100;
-  var state = player.getPlayerState();
+  var state = bgm.getPlayerState();
 
-  var getVolume = player.getVolume();
+  var getVolume = bgm.getVolume();
   // set player value
   if(state == 1){
-    $("#player_control_button").removeClass('ui-icon-play').addClass('ui-icon-pause').click(function(){player.pauseVideo();});
+    $("#bgm_control_button").removeClass('ui-icon-play').addClass('ui-icon-pause').click(function(){bgm.pauseVideo();});
   }else if(state == 2){
-    $("#player_control_button").removeClass('ui-icon-pause').addClass('ui-icon-play').click(function(){player.playVideo();});
+    $("#bgm_control_button").removeClass('ui-icon-pause').addClass('ui-icon-play').click(function(){bgm.playVideo();});
   }else if(state == 0){
-    $("#player_control_button").removeClass('ui-icon-pause').addClass('ui-icon-arrowrefresh-1-e').click(function(){player.playVideo();});
+    $("#bgm_control_button").removeClass('ui-icon-pause').addClass('ui-icon-arrowrefresh-1-e').click(function(){bgm.playVideo();});
   }else{
     var donothing;
   }
 
   // set play mute icons
   if(getVolume != 0){
-    $('#player_mute_button').removeClass('ui-icon-volume-off').addClass('ui-icon-volume-on').click(function(){player.mute();});
+    $('#bgm_mute_button').removeClass('ui-icon-volume-off').addClass('ui-icon-volume-on').click(function(){bgm.mute();});
   }else{
-    $('#player_mute_button').removeClass('ui-icon-volume-on').addClass('ui-icon-volume-off').click(function(){player.unMute();});
+    $('#bgm_mute_button').removeClass('ui-icon-volume-on').addClass('ui-icon-volume-off').click(function(){bgm.unMute();});
   }
 
   $("#time").html("Current: " + m + ":" + n(s) + " | Duration: " + dm + ":" + n(ds) + " | PlayerState: " + state + " | Volume: " + getVolume + " | Slider Value: " + sliderValue);  // Using the JQUERY library to write to body
