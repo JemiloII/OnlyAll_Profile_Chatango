@@ -3,7 +3,7 @@ var rain_prj_nm = "rain";
 var rain_ball_num = 50;
 var rain_ball_sbt_num =1;
 var rain_subball_num = 9;
-var rain_subball_sbt_num = 3;
+var rain_subball_sbt_num = 1;
 
 var rain_i, rain_n;
 var rain_obj;
