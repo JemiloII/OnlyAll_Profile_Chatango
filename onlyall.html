@@ -7,8 +7,7 @@
 <link rel="stylesheet" href="src/dot-luv/jquery-ui-1.10.3.custom.css" />
 </head>
 <body>
-<nav class="navmain">
-    
+<nav class="navmain"> 
     <a href="#landing" class="highlight">OnlyAll</a>
     <a href="#rules">Rules</a>
     <a href="#characters">Characters</a>
@@ -24,10 +23,32 @@
     </div>
     <div class='ayase'></div>
     <rain></rain>
-    <div id="player"></div>
+
+    
+    <div id="bgm_controls"> 
+        <ul id="icons" class="ui-widget ui-helper-clearfix">
+        <li class="ui-state-default ui-corner-all ui-text"><span>BGM</span></li>
+          <li class="ui-state-default ui-corner-all"><span id="player2_control_button" class="ui-icon ui-icon-play"></span></li>
+          <li class="ui-state-default ui-corner-all"><span id="player2_mute_button" class="ui-icon ui-icon-volume-on"></span></li>
+        </ul>
+    </div>
+
     
     <canvas width="970px;" height="200" id="canvas"></canvas>
     <hide>
+        <div id="player"></div>
+        <div id="player2"></div>
+        <div id="slider_vertical" style="height:50px;" onload="player.setVolume(document.getElementById('volume').value)" onchange="player.setVolume(document.getElementById('volume').value)"></div><br />
+        <div id="slider_timeline" style="width:400px;"></div> 
+        <div id="time"></div>
+
+        <div id="slider_vertical2" style="height:50px;" onload="player2.setVolume(document.getElementById('volume2').value)" onchange="player2.setVolume(document.getElementById('volume2').value)"></div><br />
+        <div id="slider_timeline2" style="width:400px;"></div> 
+        <div id="time2"></div>
+
+
+
+
         <input type="range" id="slider" min="10" max="500" value="450"> <span id="num">100</span>
         <input type="range" id="gheight" min="10" max="100" value="50"> <span id="num2">50</span>
         <br />
@@ -84,7 +105,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="js/jquery-ui-1.10.3.custom.js"></script>
 <script src="src/main.js"></script>
-<script src="src/ytapi.js"></script>
+<script src="src/ytapix2.js"></script>
 <script src="src/backstretch.js"></script>
 <script src="src/grass.js"></script>
 <script src="src/cloud.js"></script>
