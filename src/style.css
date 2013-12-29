@@ -15,7 +15,9 @@ body{margin: 0 auto; padding: 0; text-align: center; background: rgba(0,0,0,1); 
 	background: linear-gradient(to bottom,  #000000 3%,#474747 49%,#2c2c2c 52%,#262626 55%,#111111 60%,#000000 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 	position: fixed;
-	height: 5vh;
+	top:0;
+	margin-bottom: 0;
+	height: 5.5vh;
 	width: 100vw;
 	z-index: 5;
 }
@@ -33,7 +35,7 @@ body{margin: 0 auto; padding: 0; text-align: center; background: rgba(0,0,0,1); 
  	padding: 5vh 0 0 0;
 }
 #landing article{
-	background: rgba(28, 28, 28, .7);
+	background: rgba(28, 28, 28, .5);
 	border-radius: 5em;
 	position: absolute;
 	font-family: 'The Girl Next Door', cursive;
@@ -42,6 +44,7 @@ body{margin: 0 auto; padding: 0; text-align: center; background: rgba(0,0,0,1); 
 	top: 17vh;
 	left: 10vw;
 	box-shadow: 0 0 10px 10px #1c1c1c, 0 0 7px 7px #FFF;
+	z-index: 1;
 }
 #landing article h1{
 	font-size: 30px;
@@ -51,7 +54,7 @@ body{margin: 0 auto; padding: 0; text-align: center; background: rgba(0,0,0,1); 
 }
 
 #rules{
-	background: rgba(242,103,22,1);
+	background: rgba(0,0,0,1);
 	background: #f26716; /* Old browsers */
 	background: -moz-linear-gradient(top,  #f26716 0%, #590902 100%, #7db9e8 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f26716), color-stop(100%,#590902), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
@@ -60,8 +63,16 @@ body{margin: 0 auto; padding: 0; text-align: center; background: rgba(0,0,0,1); 
 	background: -ms-linear-gradient(top,  #f26716 0%,#590902 100%,#7db9e8 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #f26716 0%,#590902 100%,#7db9e8 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f26716', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
-	height: 95vh;
-	padding: 5vh 0 0 0;
+	height: 100vh;
+	padding: 0 0 0 0;
+	overflow: hidden;
+}
+#rules#bgvideo{
+	width: 100vw;
+	height: 100vh;
+	z-index: -2;
+	overflow: hidden;
+	position: absolute;
 }
 #characters{
 	background: rgba(89,9,2,1);
@@ -129,6 +140,7 @@ body{margin: 0 auto; padding: 0; text-align: center; background: rgba(0,0,0,1); 
 	z-index: 1;
 	position: absolute;
 	right: 0;
+	top:5.5vh;
 }
 /* Grass */
 #canvas{
@@ -153,7 +165,7 @@ rain{
 	background: url('img/Ayase.png') no-repeat;
 	width: 48.9vw;
 	height: 95vh;
-	right: 0;
+	right: -.1vw;
 	z-index: -1;
 
 }

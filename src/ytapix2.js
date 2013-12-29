@@ -9,6 +9,7 @@
       //    after the API code downloads.
       var player;
       var player2;
+      var bgvideo;
       function onYouTubeIframeAPIReady() {
         // This is the player in the nav bar
         player = new YT.Player('player', {
@@ -28,6 +29,12 @@
           events: {
             'onReady': onPlayerReady2,
             'onStateChange': onPlayerStateChange2
+          }
+        });
+        bgvideo = new YT.Player('bgvideo', {
+          events: {
+            'onReady': onPlayerReady3,
+            'onStateChange': onPlayerStateChange3
           }
         });
       }
@@ -172,6 +179,24 @@
           return n > 9 ? "" + n: "0" + n;
         }
       }
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady3(event) {
+        bgvideo.setVolume(0);
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange3(event) {
+        // if (event.data == YT.PlayerState.PLAYING && !done) {
+        window.state3 = bgvideo.getPlayerState();
+        if(state3 === 0 || state3 === 2){
+          bgvideo.playVideo();
+        }
+      }
+
   $('#player_mute_button').click(playermute);
   function playermute(){
     playerVolume = player.getVolume();
@@ -208,31 +233,6 @@
       });
     }
   }
-  // var state = player.getPlayerState();
-  // var state2 = player2.getPlayerState();
-  // $('#player_control_button').click(player_control);
-  // function player_control(){
-  //   if(state === 1){
-  //     $("#player_control_button").removeClass('ui-icon-play').addClass('ui-icon-pause')
-  //       .queue(function(pcontrol){
-  //         player.pauseVideo();
-  //         pcontrol();
-  //       });
-  //   }else if(state === 2){
-  //     $("#player_control_button").removeClass('ui-icon-pause').addClass('ui-icon-play')
-  //       .queue(function(pcontrol){
-  //       player.playVideo();});
-  //   }else if(state === 0){
-  //     $("#player_control_button").removeClass('ui-icon-pause').addClass('ui-icon-arrowrefresh-1-e')
-  //       .queue(function(pcontrol){
-  //         player.playVideo();
-  //         pcontrol();
-  //       });
-  //   }else{
-  //     var donothing;
-  //   }
-
-  // }
 
   // set player value
   function player_control(){
@@ -241,7 +241,7 @@
     }else if(window.state === 2){
       $("#player_control_button").removeClass('ui-icon-pause').addClass('ui-icon-play').click(function(){player.playVideo();});
     }else if(window.state === 0){
-      $("#player_control_button").removeClass('ui-icon-pause').addClass('ui-icon-arrowrefresh-1-e').click(function(){player.playVideo();});
+      player.playVideo(); //$("#player_control_button").removeClass('ui-icon-pause').addClass('ui-icon-arrowrefresh-1-e').click(function(){player.playVideo();});
     }else{
       var donothing;
     }
