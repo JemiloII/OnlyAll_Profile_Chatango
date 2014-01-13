@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="src/style.css" />
 <link rel="stylesheet" href="src/dot-luv/jquery-ui-1.10.3.custom.css" />
 <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
+<script src="src/html5shiv.js"></script>
 </head>
 <body>
 <nav class="navmain"> 
@@ -14,9 +15,11 @@
     <a href="#characters">Characters</a>
     <a href="#aboutme">About Me</a>
         <ul id="icons" class="ui-widget ui-helper-clearfix">
-          <li class="ui-state-default ui-corner-all"><span id="player_control_button" class="ui-icon ui-icon-play"></span></li>
-          <li class="ui-state-default ui-corner-all"><span id="player_mute_button" class="ui-icon ui-icon-volume-on"></span></li>
-        </ul>
+        <nav class="main_controls">
+                <li class="ui-state-default ui-corner-all"><span id="player_control_button" class="ui-icon ui-icon-play"></span></li>
+                <li class="ui-state-default ui-corner-all"><span id="player_mute_button" class="ui-icon ui-icon-volume-on"></span></li>
+            </ul>
+        </nav>
 </nav>
 <section id="landing">
 
@@ -24,17 +27,17 @@
     <div id="viewport">
         <div id="world"></div>
     </div>
-    <div class='ayase'></div>
+    <div class="ayase"></div>
     
 
     
-    <div id="bgm_controls"> 
+    <nav id="bgm_controls"> 
         <ul id="icons" class="ui-widget ui-helper-clearfix">
-        <li class="ui-state-default ui-corner-all ui-text"><span>BGM</span></li>
+          <li class="ui-state-default ui-corner-all ui-text"><span>BGM</span></li>
           <li class="ui-state-default ui-corner-all"><span id="player2_control_button" class="ui-icon ui-icon-play"></span></li>
           <li class="ui-state-default ui-corner-all"><span id="player2_mute_button" class="ui-icon ui-icon-volume-on"></span></li>
         </ul>
-    </div>
+    </nav>
     <rain></rain>
     <article>
         <h1>Welcome</h1>
@@ -70,12 +73,24 @@
     </hide>        
 </section>
 <section id="rules">
-    <iframe id="bgvideo" frameborder="0" allowfullscreen="1" title="YouTube video player" width="1920" height="1080" src="https://www.youtube.com/embed/4PZsh3TB-Ug?enablejsapi=1&verison=3&rel=0&vq=hd720&controls=0"></iframe>
-    <article>
-        <h1>Rules</h1>
-        <p>This is the first time I've ever posted rules in the decade of roleplaying. I have them posted now because some roleplays will get rather boring.</p>
-
-    </article>
+    <iframe id="bgvideo" frameborder="0" allowfullscreen="1" title="YouTube video player" width="1920" height="1080" src="https://www.youtube.com/embed/4PZsh3TB-Ug?rel=0&loop=1&vq=hd720&controls=0&enablejsapi=1&verison=3"></iframe>
+    <section class="over_bgvideo">
+        <article>
+            <div class="background"></div>
+            <h1>Rules</h1><hr>
+            
+            <ul>
+                <li>Have Fun</li>
+                <li>No txt in rp.</li>
+                <li>At least a sentence.</li>
+                <li>Be some what descriptive.</li>
+                <li>No femboys, traps, and the like.</li>
+                <li>No God Modding or Invincible Characters</li>
+                <li>Vore, no rushing to get eatten, make a story.</li>
+            </ul>
+            <p>This is the first time I've ever posted rules in my decade of roleplaying. I have rules now for a few reasons. One is that some roleplays can get quite boring if it's not descriptive enough or characters lack interaction. Two, traps are simply disapointing to come across, since there are too many of them, and I am straight. Three, some rps themes tend to do the same thing and it's as if there is nothing new under the sun, yes I'll rp to your theme, now have me dive bomb into your world.</p>
+        </article>
+    </section>
 </section>
 <section id="characters">
     <nav class="characters_guys">
@@ -136,17 +151,18 @@
 
 <!--Jquery Here-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script src="js/jquery-ui-1.10.3.custom.js"></script>
+<script src="src/jquery-ui-1.10.3.custom.min.js"></script>
 <script src="src/main.js"></script>
 <script src="src/ytapix2.js"></script>
 <script src="src/backstretch.js"></script>
 <script src="src/grass.js"></script>
-<script src="src/cloud.js"></script>
+<script type="text/javascript" src="src/cloud.js"></script>
 <script src="src/rain.js"></script>
 <script>
 $("body").backstretch("img/darkcity.jpg");
 $("#landing").backstretch("img/meadow.jpg");
 $(".ayase").backstretch("img/Ayase.png");
+$("#rules .background").backstretch("img/rulesbg.jpg");
 
 
 </script>

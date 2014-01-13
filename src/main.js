@@ -48,23 +48,3 @@ $(function(){
 //         $(this).addClass('highlight');
 //     });
 // });
-
-var resizeViewPort = function(width, height) {
-    var tmp = document.documentElement.style.overflow;
-    document.documentElement.style.overflow = "scroll";
-
-    if (window.outerWidth) {
-        window.resizeTo(
-            width + (window.outerWidth - document.documentElement.clientWidth),
-            height + (window.outerHeight - document.documentElement.clientHeight)
-        );
-    } else {
-        window.resizeTo(960, 810);
-        window.resizeTo(
-            width + (960 - document.documentElement.clientWidth),
-            height + (810 - document.documentElement.clientHeight)
-        );
-    }
-
-    document.documentElement.style.overflow = tmp;
-};

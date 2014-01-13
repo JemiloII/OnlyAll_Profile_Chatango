@@ -182,6 +182,7 @@
       // 4. The API will call this function when the video player is ready.
       function onPlayerReady3(event) {
         bgvideo.setVolume(0);
+        bgvideo.setLoop(true);
         event.target.playVideo();
       }
 
@@ -192,7 +193,7 @@
       function onPlayerStateChange3(event) {
         // if (event.data == YT.PlayerState.PLAYING && !done) {
         window.state3 = bgvideo.getPlayerState();
-        if(state3 === 0 || state3 === 2){
+        if(window.state3 === 0 || window.state3 === 2){
           bgvideo.playVideo();
         }
       }

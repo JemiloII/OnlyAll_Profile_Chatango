@@ -22,6 +22,9 @@ function updateCloud(cloud) {
     var transform = "translate3d(" + cloud.data("x") + "px," + cloud.data("y") + "px, " + cloud.data("z") + "px) rotateZ(" + cloud.data("angle") + "deg)";
     cloud.css({
         "-webkit-transform": transform,
+        "-moz-transform": transform,
+        "-o-transform": transform,
+        "transform": transform,
         "opacity": z / 1000
 
     });
